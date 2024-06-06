@@ -100,11 +100,13 @@ module.exports = {
 						name: "react-aria-components",
 					},
 					{
-						message: "Use deep import, e.g. `@fortawesome/pro-solid-svg-icons/faCheck`",
-						name: "@fortawesome/pro-solid-svg-icons",
+						message:
+							"Use deep import, e.g. `@fortawesome/free-solid-svg-icons/faCheck`",
+						name: "@fortawesome/free-solid-svg-icons",
 					},
 					{
-						message: "Use deep import, e.g. `@fortawesome/pro-solid-svg-icons/faCheck`",
+						message:
+							"Use deep import, e.g. `@fortawesome/free-solid-svg-icons/faCheck`",
 						name: "@fortawesome/pro-regular-svg-icons",
 					},
 				],

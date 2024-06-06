@@ -1,4 +1,4 @@
-import { faHome } from "@fortawesome/pro-solid-svg-icons/faHome";
+import { faHome } from "@fortawesome/free-solid-svg-icons/faHome";
 import { App } from "boondoggle";
 import { useLocation } from "wouter";
 

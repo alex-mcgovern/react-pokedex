@@ -1,6 +1,6 @@
 import type { FallbackRender } from "@sentry/react";
 
-import { faExclamationTriangle } from "@fortawesome/pro-solid-svg-icons/faExclamationTriangle";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons/faExclamationTriangle";
 import { App, Button, Grid, Icon, LinkButton } from "boondoggle";
 
 import "../css/index.css";
