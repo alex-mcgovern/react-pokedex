@@ -1,0 +1,31 @@
+.radioButtonWrapperStyles {
+	align-items: start;
+	border-radius: var(--sm);
+	display: flex;
+	gap: var(--space_2);
+}
+
+.radioButtonInputStyles {
+	border-radius: 50%;
+	margin-top: var(--space_1);
+}
+
+.radioButtonLabelStyles {
+	font-size: var(--font-size-body-md);
+	position: relative;
+	line-height: 1.25;
+	transition:
+		border-color var(--transition-duration-short) ease,
+		background var(--transition-duration-short) ease;
+	accent-color: var(--color-bg-button-primary);
+}
+
+.radioButtonLabelStyles:hover {
+	cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.radioButtonLabelStyles {
+		transition: none;
+	}
+}

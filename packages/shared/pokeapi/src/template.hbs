@@ -1,0 +1,96 @@
+import { ZodiosHooks } from "@alex-mcgovern/zodios-react";
+
+import { Zodios, makeApi } from "@zodios/core";
+import { z } from "zod";
+
+{{#if imports}}
+{{#each imports}}
+import { {{{@key}}} } from "./{{{this}}}"
+{{/each}}
+{{/if}}
+
+
+{{#if types}}
+{{#each types}}
+{{{this}}};
+{{/each}}
+{{/if}}
+
+{{#each schemas}}
+const {{@key}}{{#if (lookup ../circularTypeByName @key)}}: z.ZodType<{{@key}}>{{/if}} = {{{this}}};
+{{/each}}
+
+{{#each schemas}}
+export type PokeApi{{@key}} = z.infer<typeof {{@key}}>;
+{{/each}}
+
+{{#ifNotEmptyObj schemas}}
+export const schemas = {
+{{#each schemas}}
+	{{@key}},
+{{/each}}
+};
+{{/ifNotEmptyObj}}
+
+const endpoints = makeApi([
+{{#each endpoints}}
+	{
+		method: "{{method}}",
+		path: "{{path}}",
+		{{#if @root.options.withAlias}}
+		{{#if alias}}
+		alias: "{{camelCase alias}}",
+		{{/if}}
+		{{/if}}
+		{{#if description}}
+		description: `{{description}}`,
+		{{/if}}
+		{{#if requestFormat}}
+		requestFormat: "{{requestFormat}}",
+		{{/if}}
+		{{#if parameters}}
+		parameters: [
+			{{#each parameters}}
+				{
+					name: "{{name}}",
+					{{#if description}}
+					description: `{{description}}`,
+					{{/if}}
+					{{#if type}}
+					type: "{{type}}",
+					{{/if}}
+					schema: {{{schema}}}
+				},
+			{{/each}}
+		],
+		{{/if}}
+		response: {{{response}}},
+		{{#if errors.length}}
+		errors: [
+			{{#each errors}}
+			{
+				{{#ifeq status "default" }}
+				status: "default",
+				{{else}}
+				status: {{status}},
+				{{/ifeq}}
+				{{#if description}}
+				description: `{{description}}`,
+				{{/if}}
+				schema: {{{schema}}}
+			},
+			{{/each}}
+		]
+		{{/if}}
+	},
+{{/each}}
+]);
+
+// A Zodios (zod + axios) query client for the PokeAPI
+export const client = new Zodios("https://pokeapi.co", endpoints, { validate: "request" });
+
+// A react-query wrapper for the apiClient
+export const queryClient = new ZodiosHooks("pokeApi", client);
+
+
+

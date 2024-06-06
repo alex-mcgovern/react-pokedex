@@ -1,0 +1,16 @@
+{
+	"name": "@shared/react-query",
+	"sideEffects": [
+		"**/*.css"
+	],
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"version": "0.0.0",
+	"main": "./src/index.ts",
+	"type": "module",
+	"dependencies": {
+		"@tanstack/react-query": "5.37.1",
+		"react": "18.2.0"
+	}
+}
