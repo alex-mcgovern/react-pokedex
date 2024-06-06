@@ -73,15 +73,13 @@ jobs:
         name: "Cloudflare Pages"
         runs-on: ubuntu-latest
         if: ${{ needs.check_ref_name.outputs.match == 'true' }}
-        strategy:
-            matrix:
-                environment: ["dev"]
-        environment:
-            name: ${{ matrix.environment }}
         needs: [cypress, code_quality, check_ref_name]
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+
+            - name: Build
+              run: npm install && npm run build
 
             - name: "Create .npmrc"
               shell: bash
@@ -89,17 +87,12 @@ jobs:
                   echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc
                   echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
 
-            - name: Build
-              run: npm install && npm run build
-              env:
-                  VITE_APP_ENV: ${{ matrix.environment }}
-
             - name: Publish
               uses: cloudflare/pages-action@1
               with:
                   apiToken: ${{ secrets.CF_PAGES_TOKEN }}
                   accountId: ${{ secrets.CF_ACCOUNT_ID }}
-                  projectName: ${{ vars.CF_PAGES_PROJECT_NAME}}
+                  projectName: react-pokedex
                   directory: dist
                   branch: main
                   gitHubToken: ${{ secrets.GITHUB_TOKEN }}
