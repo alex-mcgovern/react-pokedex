@@ -37,12 +37,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
-            - name: "Create .npmrc"
-              shell: bash
-              run: |
-                  echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc
-                  echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
-
             - name: Cypress
               uses: cypress-io/github-action@v6
               with:
