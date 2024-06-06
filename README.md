@@ -4,6 +4,11 @@
 A quick Pokedex app for a take-home assignment.
 
 
+## Demo
+
+It's deployed with Cloudflare pages at [react-pokedex.alexmcgovern.com](https://react-pokedex.alexmcgovern.com/)
+
+
 ## Features
 
 - Built with [Vite](https://vitejs.dev/)
@@ -100,4 +105,4 @@ Or do a prod build
 
 - [x] Build a Pokemon detail view, probably with a modal or drawer (I found time)
 - [ ] Add filtering to the table view
-- [ ] Round out mobile styling, and add a mobile menu
+- [ ] Round out styling — particularly on smaller screens, and add a mobile menu
