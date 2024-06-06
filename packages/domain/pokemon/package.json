@@ -13,7 +13,7 @@
 		"@shared/pokeapi": "*",
 		"@shared/utils": "*",
 		"@tanstack/react-query": "5.37.1",
-		"boondoggle": "^2.0.214",
+		"boondoggle": "2.0.214",
 		"clsx": "2.1.0",
 		"react": "18.2.0"
 	}
