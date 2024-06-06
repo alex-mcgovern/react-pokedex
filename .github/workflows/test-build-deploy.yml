@@ -78,14 +78,14 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
-            - name: Build
-              run: npm install && npm run build
-
             - name: "Create .npmrc"
               shell: bash
               run: |
                   echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc
                   echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
+
+            - name: Build
+              run: npm install && npm run build
 
             - name: Publish
               uses: cloudflare/pages-action@1
