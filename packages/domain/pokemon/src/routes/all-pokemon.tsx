@@ -44,7 +44,7 @@ export function AllPokemon() {
 	} = useFetchPokemon({ limit: 25, offset: 0 });
 
 	const ref = useHandleScrollToTop({ isFetchingNextPage, isFetchingPreviousPage });
-	const [_, setDrawer] = App.useDrawer()
+	const [_, setDrawer] = App.useDrawer();
 
 	if (isLoading) {
 		return <Loader />;
@@ -56,7 +56,6 @@ export function AllPokemon() {
 
 	// Note: We've hardcoded a page size of 1
 	const pokemon = data.pages[0].results;
-
 
 	return (
 		<>
@@ -104,7 +103,7 @@ export function AllPokemon() {
 										isDisabled={isFetchingNextPage || isFetchingPreviousPage}
 										key={t.name}
 										onAction={() => {
-											setDrawer(<PokemonDetails pokemon={t} />)
+											setDrawer(<PokemonDetails pokemon={t} />);
 										}}
 									>
 										<Table.Cell>{t.id}</Table.Cell>
