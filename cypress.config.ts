@@ -4,7 +4,7 @@ import "dotenv/config";
 
 export default defineConfig({
 	e2e: {
-		baseUrl: process.env.CYPRESS_BASE_URL,
+		baseUrl: "http://localhost:3000/",
 		excludeSpecPattern: ["*/*/**/_*.cy.ts"],
 		retries: {
 			runMode: 3,
