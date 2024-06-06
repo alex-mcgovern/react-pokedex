@@ -11,10 +11,10 @@
 	"version": "0.0.0",
 	"dependencies": {
 		"@shared/pokeapi": "*",
-		"clsx": "2.1.0",
 		"@shared/utils": "*",
 		"@tanstack/react-query": "5.37.1",
-		"boondoggle": "^2.0.211",
+		"boondoggle": "^2.0.214",
+		"clsx": "2.1.0",
 		"react": "18.2.0"
 	}
 }

@@ -31,7 +31,7 @@
 		"@sentry/react": "8.0.0",
 		"@shared/components": "*",
 		"@shared/react-query": "*",
-		"boondoggle": "^2.0.211",
+		"boondoggle": "^2.0.214",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"wouter": "3.1.3"

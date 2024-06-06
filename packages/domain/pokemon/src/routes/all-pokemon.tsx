@@ -5,6 +5,7 @@ import { App, Button, Loader, Table } from "boondoggle";
 import { capitalize } from "@shared/utils";
 
 import { PillPokemonType } from "../components/pill-pokemon-type";
+import { PokemonDetails } from "../components/pokemon-details";
 import { Stat } from "../components/pokemon-stat";
 import { useFetchPokemon } from "../lib/use-fetch-pokemon";
 
@@ -43,6 +44,7 @@ export function AllPokemon() {
 	} = useFetchPokemon({ limit: 25, offset: 0 });
 
 	const ref = useHandleScrollToTop({ isFetchingNextPage, isFetchingPreviousPage });
+	const [_, setDrawer] = App.useDrawer()
 
 	if (isLoading) {
 		return <Loader />;
@@ -54,6 +56,7 @@ export function AllPokemon() {
 
 	// Note: We've hardcoded a page size of 1
 	const pokemon = data.pages[0].results;
+
 
 	return (
 		<>
@@ -100,6 +103,9 @@ export function AllPokemon() {
 									<Table.Row
 										isDisabled={isFetchingNextPage || isFetchingPreviousPage}
 										key={t.name}
+										onAction={() => {
+											setDrawer(<PokemonDetails pokemon={t} />)
+										}}
 									>
 										<Table.Cell>{t.id}</Table.Cell>
 										<Table.Cell>{capitalize(t.name)}</Table.Cell>
