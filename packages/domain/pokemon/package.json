@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@shared/pokeapi": "*",
 		"@shared/utils": "*",
+		"@shared/components": "*",
 		"@tanstack/react-query": "5.37.1",
 		"boondoggle": "v2.0.216",
 		"clsx": "2.1.0",

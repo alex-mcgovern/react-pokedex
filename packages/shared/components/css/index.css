@@ -31,3 +31,17 @@
 		color: var(--red-11);
 	}
 }
+
+.full-screen-loader {
+	--loader-size: var(--space-16);
+
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: var(--slate-11);
+}

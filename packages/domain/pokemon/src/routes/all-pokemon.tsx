@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { App, Button, Loader, Table } from "boondoggle";
 
+import { FullScreenLoader } from "@shared/components";
 import { capitalize } from "@shared/utils";
 
 import { PillPokemonType } from "../components/pill-pokemon-type";
@@ -47,7 +48,7 @@ export function AllPokemon() {
 	const [_, setDrawer] = App.useDrawer();
 
 	if (isLoading) {
-		return <Loader />;
+		return <FullScreenLoader />;
 	}
 
 	if (!isSuccess) {
