@@ -33,6 +33,8 @@ function getParam(param: string, url: string): string {
 	return parsed.searchParams.get(param) ?? "";
 }
 
+type PagingQuery = { limit: number; offset: number };
+
 /**
  * Fetches all Pokemon from the API
  * First uses the list endpoint to get the list of Pokemon,
@@ -45,11 +47,8 @@ function getParam(param: string, url: string): string {
  * We do our processing and additional fetching in the queryFn to make use
  * of react-query's caching capabilities.
  */
-type PagingQuery = { limit: number; offset: number };
-
 export function useFetchPokemon({ limit, offset }: PagingQuery) {
 	return useInfiniteQuery({
-		// This is defined simply to help with writing the queryFn, usually would rely on inference.
 		getNextPageParam: (p): PagingQuery | undefined => {
 			return p.next
 				? {
