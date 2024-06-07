@@ -53,7 +53,7 @@ OS) you can export it like so:
     open ~/.zshrc
     ```
 
-2. Add this line: (substituting in your new Github personal access token)
+2. Add this line: (substituting in your token)
 
     ```shell
     export FONTAWESOME_TOKEN={TOKEN}
